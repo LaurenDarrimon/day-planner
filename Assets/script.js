@@ -1,12 +1,15 @@
+//declare DOM variables
+let $dateDisplay = $("#currentDay");
+let saveBtn = $(".saveBtn");
+
+
 
 //display current date and time in jumbotron
-let dateDisplay = $("#currentDay")
-
 function getTime(){
     setInterval(function(){
         let currentDay = moment().format("MMM Do YYYY");
         let currentTime = moment().format("h:mm:ss a");
-        dateDisplay.text( "It's currently " + currentTime + " on " + currentDay ); 
+        $dateDisplay.text( "It's currently " + currentTime + " on " + currentDay ); 
     }, 1000)
 };
 
@@ -52,6 +55,40 @@ function pastPresentFuture(){
     }, 1000)
 }
 
+
+
+
+
+// declare function to save text item from text area to local storage
+function saveToDoItem(event) {
+    event.preventDefault(); //stop page refresh
+
+    let buttonClicked = event.target //point to the button clicked 
+
+    let toDoListItem = buttonClicked.previousElementSibling.value;
+    //find the button's previous sibling and store the value of it. 
+    console.log(toDoListItem)
+
+    
+    
+    
+
+    displayToDoItem();
+
+}
+
+// displaying the todo list item
+function displayToDoItem() {
+    
+console.log("display item is running")
+    
+
+
+}
+
 getTime();
 
 pastPresentFuture();
+
+//when user submits text area, run save Item function 
+saveBtn.on('click', saveToDoItem);
