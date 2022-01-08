@@ -36,7 +36,7 @@ function pastPresentFuture(){
     //get current hour in 24 hour format
     let currentHour = moment().format("k");
 
-    currentHour = 12; //for testing during off business hours. 
+    //currentHour = 10; //for testing during off business hours. 
 
     //write a for loop to look through all the rows within the container
         for (i=0; i<$timeSlotTextArray.length; i++){
